@@ -4,9 +4,11 @@ on:
   push:
     tags:
       - "aaa-*"
+  workflow_dispatch:
 
 jobs:
   hello-world:
+    if: github.ref_type == 'tag'
     runs-on: ubuntu-latest
     permissions:
       contents: write
