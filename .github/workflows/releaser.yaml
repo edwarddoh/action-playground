@@ -22,4 +22,4 @@ jobs:
       env: 
         GH_TOKEN: ${{ github.token }}
       run: |
-        gh workflow run tag-test.yml --ref 'refs/tags/${{ inputs.version }}'
+        gh workflow run "Tag Test" --ref 'refs/tags/${{ inputs.version }}'
