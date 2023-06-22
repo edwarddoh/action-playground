@@ -12,3 +12,4 @@ jobs:
     - id: hello
       run: |
         echo "!!!! hello world!!"
+    - uses: ncipollo/release-action@v1

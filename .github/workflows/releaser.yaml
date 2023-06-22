@@ -14,7 +14,8 @@ jobs:
       contents: write
     steps:
     - uses: actions/checkout@v3
-    - uses: ncipollo/release-action@v1
-      with:
-        name: ${{ inputs.version }}
-        tag: ${{ inputs.version }}
+    - name: create tags
+      run: |
+        git tag ${{ inputs.version }}
+        git push --tags
+        gh workflow run release.yml --ref ${{ inputs.version }}
