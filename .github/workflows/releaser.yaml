@@ -1,0 +1,17 @@
+name: releaser
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 배포할 버전
+        required: true
+
+jobs:
+  release:
+    steps:
+    - uses: actions/checkout@v3
+    - uses: ncipollo/release-action@v1
+      with:
+        name: ${{ inputs.version }}
+        tag: ${{ inputs.version }}
