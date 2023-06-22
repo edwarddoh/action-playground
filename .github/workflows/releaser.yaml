@@ -14,10 +14,9 @@ jobs:
       contents: write
     steps:
     - uses: actions/checkout@v3
-    - name: create tags
+    - uses: ncipollo/release-action@v1
+    - name: trigger workflow with versions
       env: 
         GH_TOKEN: ${{ github.token }}
       run: |
-        git tag ${{ inputs.version }}
-        git push --tags
-        gh workflow run release.yml --ref ${{ inputs.version }}
+        gh workflow run tag-test.yml --ref 'refs/tags/${{ inputs.version }}'
