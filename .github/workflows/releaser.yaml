@@ -19,7 +19,7 @@ jobs:
         tag: ${{ inputs.version }}
         name: ${{ inputs.version }}
     - name: trigger workflow with versions
-    - uses: benc-uk/workflow-dispatch@v1
+      uses: benc-uk/workflow-dispatch@v1
       with:
         workflow: tag-test.yaml
         ref: "refs/tags/${{ inputs.version }}"
